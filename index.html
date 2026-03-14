@@ -1,0 +1,3466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Olfateando el Mundo — Clase Intensiva en Vivo</title>
+  <meta name="description"
+    content="Inscríbete en la clase intensiva en vivo: Lo que tu perro lleva años intentando decirte... y nadie te explicó." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* ── RESET ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #2d2d2d;
+      overflow-x: hidden;
+      background: #fff
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      font-family: inherit
+    }
+
+    /* ── TOKENS ── */
+    :root {
+      --purple-900: #2E1A5E;
+      --purple-700: #574092;
+      --purple-500: #6B4FA0;
+      --purple-300: #9A7FD1;
+      --purple-100: #E8E0F5;
+      --purple-50: #F5F0FF;
+      --teal-700: #2A8B9A;
+      --teal-500: #3EA7B7;
+      --teal-300: #6CC5D3;
+      --teal-100: #D4F0F5;
+      --teal-50: #EFFBFD;
+      --amber-700: #C4781A;
+      --amber-500: #DE821E;
+      --amber-300: #F0A94D;
+      --amber-100: #FDEABA;
+      --amber-50: #FFF8EC;
+      --neutral-900: #1A1A2E;
+      --neutral-700: #3D3D56;
+      --neutral-500: #6B6B80;
+      --neutral-300: #A8A8B8;
+      --neutral-100: #E8E8ED;
+      --neutral-50: #F7F7FA;
+      --white: #FFF;
+      --success-500: #03AC1C;
+      --error-500: #E73232;
+      --gradient-hero: linear-gradient(135deg, #574092 0%, #3EA7B7 50%, #DE821E 100%);
+      --gradient-purple: linear-gradient(135deg, #574092 0%, #9A7FD1 100%);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 10000px;
+      --shadow-sm: 0 2px 8px rgba(46, 26, 94, .06);
+      --shadow-md: 0 4px 20px rgba(46, 26, 94, .1);
+      --shadow-lg: 0 8px 40px rgba(46, 26, 94, .12);
+      --ease-out: cubic-bezier(.25, .46, .45, .94);
+      --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 20px rgba(87, 64, 146, .12)
+      }
+
+      50% {
+        box-shadow: 0 0 40px rgba(87, 64, 146, .25)
+      }
+    }
+
+    @keyframes morph {
+
+      0%,
+      100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%
+      }
+
+      50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%
+      }
+    }
+
+    @keyframes gradient-shift {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    @keyframes breathe {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.04)
+      }
+    }
+
+    @keyframes blob {
+      0% {
+        transform: translate(0, 0)scale(1)
+      }
+
+      33% {
+        transform: translate(30px, -50px)scale(1.1)
+      }
+
+      66% {
+        transform: translate(-20px, 20px)scale(.9)
+      }
+
+      100% {
+        transform: translate(0, 0)scale(1)
+      }
+    }
+
+    @keyframes paw-float {
+
+      0%,
+      100% {
+        transform: translateY(0)rotate(0deg);
+        opacity: .05
+      }
+
+      50% {
+        transform: translateY(-18px)rotate(12deg);
+        opacity: .09
+      }
+    }
+
+    @keyframes cta-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 20px rgba(3, 172, 28, .25)
+      }
+
+      50% {
+        box-shadow: 0 8px 40px rgba(3, 172, 28, .45)
+      }
+    }
+
+    @keyframes arrow-bounce {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(4px)
+      }
+    }
+
+    @keyframes glow-pulse {
+
+      0%,
+      100% {
+        opacity: .4
+      }
+
+      50% {
+        opacity: .8
+      }
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      14% {
+        transform: scale(1.12)
+      }
+
+      28% {
+        transform: scale(1)
+      }
+
+      42% {
+        transform: scale(1.08)
+      }
+
+      70% {
+        transform: scale(1)
+      }
+    }
+
+    @keyframes line-draw {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 60px
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .7s var(--ease-out)
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* ══════════════════════════════════════════
+   HERO — back to original proportions
+   ══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--purple-50) 0%, var(--white) 25%, var(--teal-50) 50%, var(--amber-50) 75%, var(--white) 100%);
+      background-size: 400% 400%;
+      animation: gradient-shift 25s ease infinite
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(87, 64, 146, .06) 0%, transparent 70%);
+      top: -250px;
+      right: -180px;
+      animation: morph 18s ease-in-out infinite, float 10s ease-in-out infinite;
+      pointer-events: none
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 167, 183, .05) 0%, transparent 70%);
+      bottom: -150px;
+      left: -120px;
+      animation: morph 14s ease-in-out infinite 4s;
+      pointer-events: none
+    }
+
+    .paw-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .paw-bg .paw {
+      position: absolute;
+      color: var(--purple-300);
+      opacity: .04;
+      animation: paw-float 8s ease-in-out infinite
+    }
+
+    .paw-bg .paw:nth-child(1) {
+      top: 10%;
+      left: 4%;
+      font-size: 1.4rem
+    }
+
+    .paw-bg .paw:nth-child(2) {
+      top: 18%;
+      right: 6%;
+      animation-delay: 1.5s;
+      font-size: 2rem
+    }
+
+    .paw-bg .paw:nth-child(3) {
+      top: 50%;
+      left: 2%;
+      animation-delay: 3s;
+      font-size: 1.6rem
+    }
+
+    .paw-bg .paw:nth-child(4) {
+      top: 75%;
+      right: 4%;
+      animation-delay: 4.5s;
+      font-size: 1.8rem
+    }
+
+    .paw-bg .paw:nth-child(5) {
+      bottom: 8%;
+      left: 10%;
+      animation-delay: 2s;
+      font-size: 1.3rem
+    }
+
+    .paw-bg .paw:nth-child(6) {
+      top: 35%;
+      right: 12%;
+      animation-delay: 5s;
+      font-size: 1.5rem
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: .03;
+      width: 350px;
+      height: 350px;
+      background: var(--amber-300);
+      top: 25%;
+      right: 30%;
+      animation: blob 20s ease-in-out infinite 2s
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    .hero-topbar {
+      position: relative;
+      z-index: 10;
+      padding: 20px 0 0;
+      text-align: center;
+      animation: fadeInDown .7s var(--ease-out) both
+    }
+
+    .hero-logo {
+      max-width: 160px;
+      margin: 0 auto;
+      filter: drop-shadow(0 2px 6px rgba(46, 26, 94, .06));
+      transition: transform .3s ease
+    }
+
+    .hero-logo:hover {
+      transform: scale(1.03)
+    }
+
+    .hero-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 5;
+      padding: 0 0 16px
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2
+    }
+
+    /* 1. Hook — belief breaker */
+    .hero-hook {
+      font-size: clamp(.88rem, 1.3vw, 1rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--neutral-700);
+      margin-bottom: 10px;
+      animation: fadeInUp .7s var(--ease-out) .15s both;
+      line-height: 1.4;
+      position: relative;
+      padding-left: 16px
+    }
+
+    .hero-hook::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      bottom: 2px;
+      width: 3px;
+      border-radius: 3px;
+      background: var(--teal-500)
+    }
+
+    /* 2. Invite */
+    .hero-invite {
+      font-size: clamp(.78rem, 1.2vw, .88rem);
+      font-weight: 700;
+      color: var(--teal-500);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      animation: fadeInUp .7s var(--ease-out) .25s both;
+      line-height: 1.4
+    }
+
+    /* 3. Headline — BIG impact */
+    .hero-headline {
+      font-weight: 900;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.18;
+      color: var(--purple-900);
+      margin-bottom: 14px;
+      animation: fadeInUp .8s var(--ease-out) .3s both
+    }
+
+    .hero-headline .highlight {
+      background: var(--gradient-hero);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite
+    }
+
+    /* 4. Subheadline */
+    .hero-subheadline {
+      font-size: clamp(.95rem, 1.9vw, 1.25rem);
+      font-weight: 700;
+      color: var(--purple-900);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      animation: fadeInUp .8s var(--ease-out) .4s both
+    }
+
+    /* 5. Value box */
+    .hero-value-box {
+      background: rgba(87, 64, 146, .05);
+      border: 1px solid rgba(87, 64, 146, .08);
+      border-radius: var(--radius-md);
+      padding: 14px 18px 14px 22px;
+      margin-bottom: 20px;
+      animation: fadeInUp .8s var(--ease-out) .5s both;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-value-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gradient-hero);
+      border-radius: 3px
+    }
+
+    .hero-value-box p {
+      font-size: .88rem;
+      color: var(--neutral-700);
+      line-height: 1.6
+    }
+
+    .hero-value-box strong {
+      color: var(--purple-700)
+    }
+
+    /* 6. CTA + access note */
+    .hero-cta-wrap {
+      animation: fadeInUp .9s var(--ease-out) .6s both
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: none;
+      border-radius: var(--radius-full);
+      background: var(--success-500);
+      color: var(--white);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all .35s var(--ease-out);
+      animation: cta-pulse 3s ease-in-out infinite;
+      text-decoration: none
+    }
+
+    .btn-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      transition: all .6s ease;
+      transform: translate(-50%, -50%)
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      background: #029714;
+      box-shadow: 0 10px 35px rgba(3, 172, 28, .4)
+    }
+
+    .btn-cta:hover::before {
+      width: 400px;
+      height: 400px
+    }
+
+    .btn-cta i {
+      font-size: 1.05rem;
+      transition: transform .3s ease
+    }
+
+    .btn-cta:hover i {
+      transform: translateX(4px)
+    }
+
+    .hero-access-note,
+    .section-access-note {
+      margin-top: 10px;
+      font-size: .75rem;
+      color: var(--neutral-500);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      opacity: 0.7;
+    }
+
+    .hero-access-note {
+      justify-content: flex-start;
+      animation: fadeInUp .9s var(--ease-out) .7s both
+    }
+
+    .hero-access-note i,
+    .section-access-note i {
+      color: var(--teal-500);
+      font-size: .73rem;
+      opacity: 0.8;
+    }
+
+    /* Sub-text on dark backgrounds */
+    .section-moment .section-access-note,
+    .section-transform .section-access-note {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* Right column */
+    .hero-right {
+      position: relative;
+      animation: fadeInRight 1s var(--ease-out) .3s both
+    }
+
+    .hero-image-wrapper {
+      position: relative
+    }
+
+    .hero-image-wrapper img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      height: auto;
+      object-fit: cover
+    }
+
+    .hero-image-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 12px;
+      left: 12px;
+      border-radius: var(--radius-lg);
+      background: var(--gradient-purple);
+      opacity: .1;
+      z-index: -1;
+      animation: pulse-glow 5s ease-in-out infinite
+    }
+
+    .hero-float-card {
+      position: absolute;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: float 5s ease-in-out infinite 1s;
+      z-index: 3
+    }
+
+    .hero-float-card.card-families {
+      bottom: -14px;
+      left: -10px
+    }
+
+    .hero-float-card .float-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .95rem;
+      background: var(--purple-100);
+      color: var(--purple-700)
+    }
+
+    .hero-float-card .float-info strong {
+      display: block;
+      font-size: .78rem;
+      color: var(--neutral-900)
+    }
+
+    .hero-float-card .float-info span {
+      font-size: .68rem;
+      color: var(--neutral-500)
+    }
+
+    /* Trust & scroll */
+    .trust-bar {
+      position: relative;
+      z-index: 5;
+      padding: 0 0 20px;
+      animation: fadeInUp .8s var(--ease-out) .9s both
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--neutral-500)
+    }
+
+    .trust-item i {
+      color: var(--teal-500);
+      font-size: .9rem
+    }
+
+    .scroll-indicator {
+      text-align: center;
+      padding-bottom: 16px;
+      position: relative;
+      z-index: 5;
+      animation: fadeInUp 1s var(--ease-out) 1.1s both
+    }
+
+    .scroll-indicator a {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--neutral-300);
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      transition: color .3s ease
+    }
+
+    .scroll-indicator a:hover {
+      color: var(--purple-500)
+    }
+
+    .scroll-indicator a i {
+      font-size: 1rem;
+      animation: arrow-bounce 1.5s ease-in-out infinite
+    }
+  </style>
+  <style>
+    /* ══════════════════════════════════════════════════
+   SECTION 2 — INNER DIALOGUE (compact, 1 screen)
+   ══════════════════════════════════════════════════ */
+    .section-inner {
+      position: relative;
+      overflow: hidden;
+      padding: 56px 0 48px;
+      background: linear-gradient(180deg, #1a1230 0%, #2E1A5E 40%, #1e1345 100%);
+      color: var(--white);
+    }
+
+    .section-inner .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px)
+    }
+
+    .glow-orb-1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(62, 167, 183, .12);
+      top: -100px;
+      left: -100px;
+      animation: glow-pulse 8s ease-in-out infinite
+    }
+
+    .glow-orb-2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(154, 127, 209, .1);
+      bottom: -80px;
+      right: -60px;
+      animation: glow-pulse 10s ease-in-out infinite 3s
+    }
+
+    .inner-header {
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2
+    }
+
+    .inner-header h2 {
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 0
+    }
+
+    .inner-header h2 em {
+      font-style: italic;
+      color: var(--teal-300)
+    }
+
+    /* Thoughts — compact timeline */
+    .thoughts-flow {
+      max-width: 740px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2
+    }
+
+    .thoughts-flow::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent 0%, rgba(154, 127, 209, .2) 15%, rgba(154, 127, 209, .2) 85%, transparent 100%);
+      transform: translateX(-50%)
+    }
+
+    .thought {
+      position: relative;
+      max-width: 400px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all .4s var(--ease-out)
+    }
+
+    .thought:hover {
+      background: rgba(255, 255, 255, .07);
+      border-color: rgba(255, 255, 255, .12);
+      transform: translateY(-2px)
+    }
+
+    .thought:nth-child(odd) {
+      margin-left: 0;
+      margin-right: auto
+    }
+
+    .thought:nth-child(even) {
+      margin-left: auto;
+      margin-right: 0
+    }
+
+    .thought::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple-300);
+      top: 50%;
+      box-shadow: 0 0 10px rgba(154, 127, 209, .4);
+      transition: all .3s ease
+    }
+
+    .thought:nth-child(odd)::after {
+      right: -4px;
+      transform: translateX(50%) translateY(-50%)
+    }
+
+    .thought:nth-child(even)::after {
+      left: -4px;
+      transform: translateX(-50%) translateY(-50%)
+    }
+
+    .thought:hover::after {
+      background: var(--teal-300);
+      box-shadow: 0 0 18px rgba(62, 167, 183, .6);
+      transform: translateX(0) translateY(-50%) scale(1.3)
+    }
+
+    .thought .quote-mark {
+      position: absolute;
+      top: -6px;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(154, 127, 209, .12);
+      font-family: Georgia, serif;
+      pointer-events: none
+    }
+
+    .thought:nth-child(odd) .quote-mark {
+      left: 12px
+    }
+
+    .thought:nth-child(even) .quote-mark {
+      right: 12px
+    }
+
+    .thought p {
+      font-size: clamp(.88rem, 1.4vw, .98rem);
+      font-weight: 600;
+      color: rgba(255, 255, 255, .85);
+      line-height: 1.45;
+      font-style: italic;
+      position: relative;
+      z-index: 1
+    }
+
+    .thought p .emphasis {
+      color: var(--teal-300);
+      font-weight: 700;
+      font-style: normal
+    }
+
+    /* Heart icon on timeline */
+    .timeline-heart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin: 6px auto 14px;
+      position: relative;
+      z-index: 2;
+      border-radius: 50%;
+      background: rgba(154, 127, 209, .1);
+      border: 1px solid rgba(154, 127, 209, .2)
+    }
+
+    .timeline-heart i {
+      font-size: 1rem;
+      color: var(--purple-300);
+      animation: heartbeat 2s ease-in-out infinite
+    }
+
+    /* Revelation */
+    .pain-revelation {
+      text-align: center;
+      max-width: 700px;
+      margin: 16px auto 0;
+      padding: 32px 28px;
+      position: relative;
+      z-index: 2;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(62, 167, 183, .08) 0%, rgba(87, 64, 146, .08) 100%);
+      border: 1px solid rgba(62, 167, 183, .12)
+    }
+
+    .pain-revelation::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal-500), var(--purple-300));
+      margin: 0 auto 18px;
+      border-radius: 2px
+    }
+
+    .pain-revelation .teal-line {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 700;
+      color: var(--teal-300);
+      margin-bottom: 8px;
+      line-height: 1.4
+    }
+
+    .pain-revelation .bold-line {
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.35
+    }
+
+    /* ══════════════════════════════════════════════════
+   SECTION 3 — THE TRUTH — LIGHT background + container
+   ══════════════════════════════════════════════════ */
+    .section-truth {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0;
+      background: linear-gradient(180deg, var(--white) 0%, var(--neutral-50) 50%, var(--purple-50) 100%);
+    }
+
+    .truth-container {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 8px 60px rgba(46, 26, 94, .08), 0 1px 3px rgba(46, 26, 94, .04);
+      border: 1px solid var(--neutral-100);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .truth-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-hero);
+      background-size: 200% 200%;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    .truth-header {
+      text-align: center;
+      margin-bottom: 40px
+    }
+
+    .truth-header .truth-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--error-500);
+      background: rgba(231, 50, 50, .06);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+
+    .truth-header h3 {
+      font-weight: 800;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--purple-900);
+      line-height: 1.25
+    }
+
+    .truth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px
+    }
+
+    .truth-card {
+      background: linear-gradient(145deg, var(--neutral-50) 0%, var(--white) 100%);
+      border: 1px solid var(--neutral-100);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: all .4s var(--ease-out);
+    }
+
+    .truth-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--error-500), var(--amber-500));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s var(--ease-out)
+    }
+
+    .truth-card:hover {
+      border-color: rgba(231, 50, 50, .15);
+      box-shadow: 0 8px 32px rgba(46, 26, 94, .1);
+      transform: translateY(-4px);
+    }
+
+    .truth-card:hover::before {
+      transform: scaleX(1)
+    }
+
+    .truth-card .truth-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(231, 50, 50, .08);
+      color: var(--error-500);
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      transition: all .3s ease;
+    }
+
+    .truth-card:hover .truth-number {
+      background: var(--error-500);
+      color: var(--white);
+      transform: scale(1.1)
+    }
+
+    .truth-card h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--purple-900);
+      margin-bottom: 10px;
+      line-height: 1.4
+    }
+
+    .truth-card p {
+      font-size: .85rem;
+      color: var(--neutral-500);
+      line-height: 1.6;
+      font-weight: 400
+    }
+
+    .truth-cta {
+      text-align: center;
+      margin-top: 36px
+    }
+
+    .truth-cta .btn-cta {
+      font-size: 1.05rem;
+      padding: 18px 48px
+    }
+
+    /* ══════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════ */
+    @media(max-width:992px) {
+      .hero {
+        height: auto;
+        min-height: 100vh
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 24px
+      }
+
+      .hero-content {
+        order: 1
+      }
+
+      .hero-right {
+        order: 2;
+        max-width: 480px;
+        margin: 0 auto
+      }
+
+      .hero-value-box::before {
+        display: none
+      }
+
+      .hero-value-box {
+        border-left: none;
+        border-top: 3px solid var(--purple-300);
+        padding-left: 18px
+      }
+
+      .hero-hook {
+        text-align: left
+      }
+
+      .hero-access-note {
+        justify-content: center
+      }
+
+      .hero-cta-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center
+      }
+
+      .hero-float-card.card-families {
+        left: auto;
+        right: 12px
+      }
+
+      .hero-main {
+        padding: 12px 0
+      }
+
+      .thought:nth-child(odd),
+      .thought:nth-child(even) {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0
+      }
+
+      .thought::after {
+        display: none
+      }
+
+      .thoughts-flow::before {
+        display: none
+      }
+
+      .truth-grid {
+        grid-template-columns: 1fr
+      }
+
+      .truth-container {
+        padding: 32px 20px
+      }
+    }
+
+    @media(max-width:640px) {
+      .hero-headline {
+        font-size: clamp(1.3rem, 5.5vw, 1.8rem)
+      }
+
+      .hero-logo {
+        max-width: 130px
+      }
+
+      .trust-items {
+        gap: 16px
+      }
+
+      .trust-item {
+        font-size: .75rem
+      }
+
+      .hero-grid {
+        gap: 20px
+      }
+
+      .section-inner {
+        padding: 40px 0 36px
+      }
+
+      .section-truth {
+        padding: 48px 0
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════
+     HERO
+     ═══════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="paw-bg">
+      <div class="paw"><i class="fa-solid fa-paw"></i></div>
+      <div class="paw"><i class="fa-solid fa-paw"></i></div>
+      <div class="paw"><i class="fa-solid fa-paw"></i></div>
+      <div class="paw"><i class="fa-solid fa-paw"></i></div>
+      <div class="paw"><i class="fa-solid fa-paw"></i></div>
+      <div class="paw"><i class="fa-solid fa-paw"></i></div>
+    </div>
+    <div class="hero-blob"></div>
+
+    <div class="hero-topbar">
+      <div class="container">
+        <img src="assets/images/logo.png" alt="Olfateando el Mundo" class="hero-logo" fetchpriority="high" />
+      </div>
+    </div>
+
+    <div class="hero-main">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="hero-headline">Olvida todo lo que te enseñaron sobre <span class="highlight">corregir</span> a tu
+              perro.</h1>
+            <p class="hero-invite">Inscríbete en la clase intensiva en vivo:</p>
+            <p class="hero-subheadline">Lo que tu perro lleva años intentando decirte… y nadie te explicó.</p>
+            <div class="hero-value-box">
+              <p>Descubre cómo <strong>leer sus emociones</strong> (no solo corregir conductas): el secreto para que por
+                fin entiendas lo que le pasa y sepas <strong>cómo ayudarle de verdad.</strong></p>
+            </div>
+            <div class="hero-cta-wrap">
+              <a href="#elegir-experiencia" class="btn-cta">QUIERO ELEGIR MI ACCESO <i
+                  class="fa-solid fa-arrow-right"></i></a>
+              <p class="hero-access-note"><i class="fa-solid fa-graduation-cap"></i> Acceso estándar gratuito ·
+                Experiencia VIP disponible</p>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-image-wrapper">
+              <img src="assets/images/hero.jpg" alt="Conexión entre humanos y sus perros" fetchpriority="high" />
+              <div class="hero-image-glow"></div>
+              <div class="hero-float-card card-families">
+                <div class="float-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="float-info">
+                  <strong>+2.500 familias</strong>
+                  <span>ya transformaron su relación</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust-bar">
+      <div class="container">
+        <div class="trust-items">
+          <div class="trust-item"><i class="fa-solid fa-video"></i> Clase en vivo</div>
+          <div class="trust-item"><i class="fa-solid fa-shield-heart"></i> Educación respetuosa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <a href="#porque"><span>Descubre más</span><i class="fa-solid fa-chevron-down"></i></a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+     SECTION 2 — INNER DIALOGUE (compact — 1 screen)
+     ══════════════════════════════════════════════════ -->
+  <section class="section-inner" id="porque">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <div class="container">
+      <div class="inner-header reveal">
+        <h2>¿Te has preguntado <em>por qué...?</em></h2>
+      </div>
+
+      <div class="thoughts-flow">
+        <div class="thought reveal">
+          <span class="quote-mark">"</span>
+          <p>¿Nada de lo que pruebas <span class="emphasis">funciona</span> con tu perro?</p>
+        </div>
+        <div class="thought reveal">
+          <span class="quote-mark">"</span>
+          <p>¿Tu perro reacciona <span class="emphasis">cada vez peor</span> aunque llevas meses intentando ayudarle?
+          </p>
+        </div>
+        <div class="thought reveal">
+          <span class="quote-mark">"</span>
+          <p>¿Los adiestradores <span class="emphasis">no consiguieron</span> que mejorara?</p>
+        </div>
+        <div class="thought reveal">
+          <span class="quote-mark">"</span>
+          <p>¿Sientes que le estás <span class="emphasis">fallando</span> aunque haces todo lo que puedes para ayudarle?
+          </p>
+        </div>
+        <div class="thought reveal">
+          <span class="quote-mark">"</span>
+          <p>¿Otros perros pasean tranquilos y <span class="emphasis">el tuyo se descontrola?</span></p>
+        </div>
+
+        <div class="timeline-heart"><i class="fa-solid fa-heart-pulse"></i></div>
+      </div>
+
+      <div class="pain-revelation reveal">
+        <p class="teal-line">No es que seas mala tutora.</p>
+        <p class="bold-line">Es que los métodos que probaste nunca tocaron la raíz de la conducta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+     SECTION 3 — THE TRUTH (light bg + container)
+     ═══════════════════════════════════════ -->
+  <section class="section-truth" id="la-verdad">
+    <div class="container">
+      <div class="truth-container">
+        <div class="truth-header">
+          <div class="truth-label"><i class="fa-solid fa-circle-exclamation"></i> La verdad que nadie te contó</div>
+          <h3>Lo que realmente está pasando</h3>
+        </div>
+        <div class="truth-grid">
+          <div class="truth-card reveal">
+            <div class="truth-number"><i class="fa-solid fa-xmark"></i></div>
+            <h4>El 90% de las técnicas que has probado fueron diseñadas para corregir conductas, no para entender
+              emociones</h4>
+            <p>Los métodos tradicionales se centran en lo visible, ignorando la raíz emocional que genera cada
+              comportamiento.</p>
+          </div>
+          <div class="truth-card reveal">
+            <div class="truth-number"><i class="fa-solid fa-xmark"></i></div>
+            <h4>El adiestramiento tradicional trabaja sobre lo que tu perro HACE, ignorando lo que SIENTE</h4>
+            <p>La conducta es solo un síntoma. Si no comprendes la emoción detrás, el problema siempre vuelve.</p>
+          </div>
+          <div class="truth-card reveal">
+            <div class="truth-number"><i class="fa-solid fa-xmark"></i></div>
+            <h4>Métodos como la corrección constante o la sobreexposición pueden AUMENTAR su ansiedad y romper vuestro
+              vínculo</h4>
+            <p>Lo que debería unirte a tu perro puede estar creando más distancia, miedo y desconfianza.</p>
+          </div>
+        </div>
+        <div class="truth-cta reveal">
+          <a href="#elegir-experiencia" class="btn-cta">ELEGIR MI ACCESO <i class="fa-solid fa-arrow-right"></i></a>
+          <p class="section-access-note"><i class="fa-solid fa-graduation-cap"></i> Acceso estándar gratuito ·
+            Experiencia VIP disponible</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     SECTION 4 — TRANSFORMATION
+     ═══════════════════════════════════════════════ -->
+  <style>
+    .section-transform {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      background: linear-gradient(160deg, #2E1A5E 0%, #3d2878 30%, #2A4A6B 60%, #1e5c6d 100%);
+      color: var(--white);
+    }
+
+    .section-transform::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 167, 183, .12) 0%, transparent 70%);
+      top: -150px;
+      right: -100px;
+      animation: morph 16s ease-in-out infinite;
+      pointer-events: none
+    }
+
+    .section-transform::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(222, 130, 30, .06) 0%, transparent 70%);
+      bottom: -120px;
+      left: -80px;
+      animation: morph 20s ease-in-out infinite 5s;
+      pointer-events: none
+    }
+
+    .transform-grid {
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      gap: 48px;
+      align-items: start
+    }
+
+    /* Left — Image showcase */
+    .transform-visual {
+      position: relative;
+      z-index: 2
+    }
+
+    .transform-img-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden
+    }
+
+    .transform-img-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px
+    }
+
+    .transform-img-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: linear-gradient(180deg, transparent 50%, rgba(46, 26, 94, .35) 100%);
+      pointer-events: none
+    }
+
+    .transform-img-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 14px;
+      left: 14px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--teal-500), var(--purple-500));
+      opacity: .12;
+      z-index: -1;
+      animation: pulse-glow 6s ease-in-out infinite
+    }
+
+    .transform-float-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 3;
+      background: rgba(255, 255, 255, .12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: var(--radius-lg);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .transform-float-badge .badge-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-500), var(--teal-300));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--white)
+    }
+
+    .transform-float-badge .badge-text {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4
+    }
+
+    .transform-float-badge .badge-text strong {
+      display: block;
+      font-size: .88rem;
+      font-weight: 700
+    }
+
+    /* Decorative accent */
+    .transform-accent {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber-300), var(--amber-500));
+      opacity: .15;
+      animation: blob 12s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1
+    }
+
+    /* Right — Content */
+    .transform-content {
+      position: relative;
+      z-index: 2
+    }
+
+    .transform-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--teal-300);
+      background: rgba(62, 167, 183, .1);
+      border: 1px solid rgba(62, 167, 183, .15);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px
+    }
+
+    .transform-title {
+      font-weight: 800;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 32px
+    }
+
+    .transform-title em {
+      font-style: italic;
+      color: var(--teal-300)
+    }
+
+    /* Benefit items — staggered cards */
+    .transform-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .05);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: all .4s var(--ease-out);
+      position: relative;
+      overflow: hidden
+    }
+
+    .benefit-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--teal-300), var(--purple-300));
+      opacity: 0;
+      transition: opacity .4s ease;
+      border-radius: 3px
+    }
+
+    .benefit-item:hover {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .12);
+      transform: translateX(6px)
+    }
+
+    .benefit-item:hover::before {
+      opacity: 1
+    }
+
+    .benefit-check {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(3, 172, 28, .2), rgba(3, 172, 28, .35));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      color: var(--success-500);
+      transition: all .3s var(--ease-spring)
+    }
+
+    .benefit-item:hover .benefit-check {
+      background: var(--success-500);
+      color: var(--white);
+      transform: scale(1.12)
+    }
+
+    .benefit-text {
+      font-size: .92rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .88);
+      line-height: 1.5
+    }
+
+    .benefit-text strong {
+      color: var(--teal-300);
+      font-weight: 700
+    }
+
+    .transform-cta {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap
+    }
+
+    .transform-cta .btn-cta {
+      animation: cta-pulse 3s ease-in-out infinite;
+      font-size: .95rem;
+      padding: 16px 36px
+    }
+
+    @media(max-width:992px) {
+      .transform-grid {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+
+      .transform-visual {
+        max-width: 500px;
+        margin: 0 auto
+      }
+
+      .transform-content {
+        text-align: center
+      }
+
+      .transform-label {
+        margin-left: auto;
+        margin-right: auto
+      }
+
+      .benefit-item {
+        text-align: left
+      }
+
+      .transform-cta {
+        justify-content: center
+      }
+    }
+
+    @media(max-width:640px) {
+      .section-transform {
+        padding: 56px 0 48px
+      }
+
+      .transform-title {
+        margin-bottom: 24px
+      }
+
+      .benefit-item {
+        padding: 12px 14px
+      }
+    }
+  </style>
+
+  <section class="section-transform" id="transformacion">
+    <div class="container">
+      <div class="transform-grid">
+        <div class="transform-visual reveal">
+          <div class="transform-img-frame">
+            <img src="assets/images/transformacion.jpg" alt="Familia feliz con sus perros — la conexión es posible"
+              loading="lazy" />
+            <div class="transform-img-glow"></div>
+          </div>
+          <div class="transform-accent"></div>
+        </div>
+
+        <div class="transform-content">
+          <div class="transform-label reveal"><i class="fa-solid fa-wand-magic-sparkles"></i> La transformación</div>
+          <h2 class="transform-title reveal">¿Qué pasa cuando dejas de corregir y empiezas a <em>comprender?</em></h2>
+
+          <div class="transform-benefits">
+            <div class="benefit-item reveal">
+              <div class="benefit-check"><i class="fa-solid fa-check"></i></div>
+              <p class="benefit-text">Entiendes qué le pasa cuando <strong>reacciona</strong>, se paraliza o se
+                descontrola</p>
+            </div>
+            <div class="benefit-item reveal">
+              <div class="benefit-check"><i class="fa-solid fa-check"></i></div>
+              <p class="benefit-text">Sabes cómo <strong>ayudarle a calmarse</strong> antes de que explote</p>
+            </div>
+            <div class="benefit-item reveal">
+              <div class="benefit-check"><i class="fa-solid fa-check"></i></div>
+              <p class="benefit-text">Anticipas lo que necesita según las <strong>señales</strong> que envía</p>
+            </div>
+            <div class="benefit-item reveal">
+              <div class="benefit-check"><i class="fa-solid fa-check"></i></div>
+              <p class="benefit-text">Dejas de sentirte <strong>culpable</strong> y empiezas a sentirte capaz de
+                ayudarle</p>
+            </div>
+            <div class="benefit-item reveal">
+              <div class="benefit-check"><i class="fa-solid fa-check"></i></div>
+              <p class="benefit-text"><strong>Recuperas la relación</strong> con tu perro</p>
+            </div>
+            <div class="benefit-item reveal">
+              <div class="benefit-check"><i class="fa-solid fa-check"></i></div>
+              <p class="benefit-text">Tu perro se siente <strong>comprendido</strong> y más seguro contigo</p>
+            </div>
+          </div>
+
+          <div class="transform-cta reveal">
+            <a href="#elegir-experiencia" class="btn-cta">QUIERO ESTOS RESULTADOS <i
+                class="fa-solid fa-arrow-right"></i></a>
+            <p class="section-access-note"><i class="fa-solid fa-graduation-cap"></i>
+              Acceso estándar gratuito · Experiencia VIP disponible</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     SECTION 5 — 3 PILLARS
+     ═══════════════════════════════════════════════ -->
+  <style>
+    .section-pillars {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      background: linear-gradient(180deg, var(--white) 0%, #FFF9F0 30%, var(--amber-50) 60%, var(--white) 100%);
+    }
+
+    .section-pillars::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(222, 130, 30, .05) 0%, transparent 70%);
+      top: -100px;
+      left: -100px;
+      animation: morph 18s ease-in-out infinite;
+      pointer-events: none
+    }
+
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2
+    }
+
+    .pillars-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--purple-700);
+      background: var(--purple-50);
+      border: 1px solid var(--purple-100);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px
+    }
+
+    .pillars-title {
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+      color: var(--purple-900);
+      line-height: 1.25
+    }
+
+    .pillars-title em {
+      font-style: italic;
+      color: var(--teal-500)
+    }
+
+    /* Pillars grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 12px
+    }
+
+    /* Foundation bar connecting pillars */
+    .pillars-foundation {
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      max-width: 800px
+    }
+
+    .pillars-foundation-bar {
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--teal-500), var(--purple-500), var(--amber-500));
+      background-size: 200% 200%;
+      animation: gradient-shift 6s ease infinite;
+      margin-bottom: 16px
+    }
+
+    .pillars-foundation-text {
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--neutral-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px
+    }
+
+    .pillars-foundation-text i {
+      color: var(--purple-300)
+    }
+
+    /* Individual pillar card */
+    .pillar-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 0;
+      box-shadow: 0 4px 32px rgba(46, 26, 94, .06), 0 1px 3px rgba(46, 26, 94, .04);
+      border: 1px solid var(--neutral-100);
+      position: relative;
+      overflow: hidden;
+      transition: all .5s var(--ease-out);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 48px rgba(46, 26, 94, .12), 0 2px 6px rgba(46, 26, 94, .06);
+    }
+
+    /* Pillar top accent */
+    .pillar-top {
+      height: 5px;
+      width: 100%
+    }
+
+    .pillar-card:nth-child(1) .pillar-top {
+      background: linear-gradient(90deg, var(--teal-500), var(--teal-300))
+    }
+
+    .pillar-card:nth-child(2) .pillar-top {
+      background: linear-gradient(90deg, var(--purple-500), var(--purple-300))
+    }
+
+    .pillar-card:nth-child(3) .pillar-top {
+      background: linear-gradient(90deg, var(--amber-500), var(--amber-300))
+    }
+
+    .pillar-body {
+      padding: 28px 24px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column
+    }
+
+    /* Number badge */
+    .pillar-number {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px
+    }
+
+    .pillar-number .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--white);
+      flex-shrink: 0;
+      transition: all .3s var(--ease-spring)
+    }
+
+    .pillar-card:nth-child(1) .num {
+      background: linear-gradient(135deg, var(--teal-500), var(--teal-700))
+    }
+
+    .pillar-card:nth-child(2) .num {
+      background: linear-gradient(135deg, var(--purple-500), var(--purple-700))
+    }
+
+    .pillar-card:nth-child(3) .num {
+      background: linear-gradient(135deg, var(--amber-500), var(--amber-700))
+    }
+
+    .pillar-card:hover .num {
+      transform: scale(1.12)
+    }
+
+    .pillar-number .pillar-tag {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--neutral-500)
+    }
+
+    /* Title */
+    .pillar-card-title {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--purple-900);
+      line-height: 1.35;
+      margin-bottom: 14px;
+      min-height: 52px
+    }
+
+    /* Subtitle / intro */
+    .pillar-intro {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--teal-700);
+      margin-bottom: 8px
+    }
+
+    /* Arrow list */
+    .pillar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1
+    }
+
+    .pillar-list li {
+      font-size: .84rem;
+      font-weight: 500;
+      color: var(--neutral-700);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px
+    }
+
+    .pillar-list li::before {
+      content: '→';
+      color: var(--teal-500);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px
+    }
+
+    .pillar-card:nth-child(2) .pillar-list li::before {
+      color: var(--purple-500)
+    }
+
+    .pillar-card:nth-child(3) .pillar-list li::before {
+      color: var(--amber-500)
+    }
+
+    /* Bottom statement + CTA */
+    .pillars-bottom {
+      text-align: center;
+      margin-top: 36px;
+      position: relative;
+      z-index: 2
+    }
+
+    .pillars-statement {
+      font-size: clamp(.95rem, 1.6vw, 1.15rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--teal-700);
+      margin-bottom: 24px;
+      line-height: 1.5
+    }
+
+    .pillars-cta .btn-cta {
+      font-size: 1rem;
+      padding: 18px 44px;
+      animation: cta-pulse 3s ease-in-out infinite
+    }
+
+    @media(max-width:992px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 16px
+      }
+
+      .pillar-card-title {
+        min-height: auto
+      }
+    }
+
+    @media(max-width:640px) {
+      .section-pillars {
+        padding: 56px 0 48px
+      }
+
+      .pillars-header {
+        margin-bottom: 32px
+      }
+
+      .pillar-body {
+        padding: 20px 18px 18px
+      }
+    }
+  </style>
+
+  <section class="section-pillars" id="pilares">
+    <div class="container">
+      <div class="pillars-header">
+        <div class="pillars-label reveal"><i class="fa-solid fa-graduation-cap"></i> Lo que aprenderás</div>
+        <h2 class="pillars-title reveal">3 pilares que vas a aprender <em>en la clase</em></h2>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- PILAR 1 -->
+        <div class="pillar-card reveal">
+          <div class="pillar-top"></div>
+          <div class="pillar-body">
+            <div class="pillar-number">
+              <div class="num">1</div>
+              <span class="pillar-tag">Pilar uno</span>
+            </div>
+            <h3 class="pillar-card-title">El Protocolo E.C.A aplicado a un caso real</h3>
+            <p class="pillar-intro">Descubre exactamente cómo identificar:</p>
+            <ul class="pillar-list">
+              <li>La Emoción que dispara la conducta</li>
+              <li>El Contexto que la activa</li>
+              <li>La Acción que tu perro necesita de ti</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PILAR 2 -->
+        <div class="pillar-card reveal">
+          <div class="pillar-top"></div>
+          <div class="pillar-body">
+            <div class="pillar-number">
+              <div class="num">2</div>
+              <span class="pillar-tag">Pilar dos</span>
+            </div>
+            <h3 class="pillar-card-title">Los 3 tipos de educación canina (y cuál daña a tu perro)</h3>
+            <p class="pillar-intro">Aprenderás:</p>
+            <ul class="pillar-list">
+              <li>Por qué el adiestramiento tradicional falla con perros reactivos y ansiosos</li>
+              <li>Qué enfoque genera más ansiedad sin que lo sepas</li>
+              <li>Cuál es el único camino que toca la raíz emocional</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PILAR 3 -->
+        <div class="pillar-card reveal">
+          <div class="pillar-top"></div>
+          <div class="pillar-body">
+            <div class="pillar-number">
+              <div class="num">3</div>
+              <span class="pillar-tag">Pilar tres</span>
+            </div>
+            <h3 class="pillar-card-title">Análisis de vídeos reales en vivo</h3>
+            <p class="pillar-intro">Verás casos como el tuyo:</p>
+            <ul class="pillar-list">
+              <li>Perros reactivos en paseos</li>
+              <li>Ansiedad por separación</li>
+              <li>Ladridos al timbre</li>
+              <li>Conductas que parecen "dominancia" y en realidad son miedo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillars-foundation reveal">
+        <div class="pillars-foundation-bar"></div>
+        <p class="pillars-foundation-text"><i class="fa-solid fa-puzzle-piece"></i> Los 3 pilares se conectan para
+          formar la base de tu transformación</p>
+      </div>
+
+      <div class="pillars-bottom">
+        <p class="pillars-statement reveal">Aprenderás a leer las señales que siempre pasaste por alto.</p>
+        <div class="pillars-cta reveal">
+          <a href="#elegir-experiencia" class="btn-cta">QUIERO MI ACCESO A LA CLASE <i
+              class="fa-solid fa-arrow-right"></i></a>
+          <p class="section-access-note"><i class="fa-solid fa-graduation-cap"></i> Acceso estándar gratuito ·
+            Experiencia VIP disponible</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     SECTION 6 — SOCIAL PROOF / VIDEO
+     ═══════════════════════════════════════════════ -->
+  <style>
+    .section-proof {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      background: linear-gradient(160deg, #1a1230 0%, #2E1A5E 40%, #3a2272 100%);
+      color: var(--white);
+    }
+
+    .section-proof::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 167, 183, .06) 0%, transparent 70%);
+      top: -200px;
+      right: -150px;
+      animation: morph 20s ease-in-out infinite;
+      pointer-events: none
+    }
+
+    .section-proof::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(154, 127, 209, .06) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      animation: morph 16s ease-in-out infinite 5s;
+      pointer-events: none
+    }
+
+    .proof-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2
+    }
+
+    .proof-quote-icon {
+      font-size: 2.5rem;
+      color: var(--purple-300);
+      opacity: .3;
+      margin-bottom: 8px
+    }
+
+    .proof-title {
+      font-weight: 800;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      color: var(--white);
+      line-height: 1.3;
+      max-width: 680px;
+      margin: 0 auto 12px
+    }
+
+    .proof-title .accent {
+      color: var(--teal-300)
+    }
+
+    /* Video container */
+    .proof-video-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto
+    }
+
+    .proof-video-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 60px rgba(0, 0, 0, .35), 0 0 40px rgba(62, 167, 183, .1);
+      border: 2px solid rgba(255, 255, 255, .08)
+    }
+
+    .proof-video-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 22px;
+      z-index: -1;
+      background: linear-gradient(135deg, var(--teal-500), var(--purple-500), var(--amber-500));
+      background-size: 300% 300%;
+      animation: gradient-shift 8s ease infinite;
+      opacity: .4
+    }
+
+    .proof-video-ratio {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #0a0818
+    }
+
+    .proof-video-ratio iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 18px
+    }
+
+    /* Floating accents */
+    .proof-star {
+      position: absolute;
+      z-index: 3;
+      color: var(--amber-300);
+      opacity: .5;
+      font-size: .7rem;
+      animation: twinkle 3s ease-in-out infinite
+    }
+
+    .proof-star:nth-child(1) {
+      top: 8%;
+      left: 8%;
+      animation-delay: 0s
+    }
+
+    .proof-star:nth-child(2) {
+      top: 12%;
+      right: 10%;
+      animation-delay: 1.2s
+    }
+
+    .proof-star:nth-child(3) {
+      bottom: 15%;
+      left: 12%;
+      animation-delay: .6s
+    }
+
+    .proof-star:nth-child(4) {
+      bottom: 10%;
+      right: 8%;
+      animation-delay: 1.8s
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: .25;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .7;
+        transform: scale(1.3)
+      }
+    }
+
+    /* Trust indicator below video */
+    .proof-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2
+    }
+
+    .proof-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, .6)
+    }
+
+    .proof-trust-item i {
+      color: var(--teal-300);
+      font-size: .9rem
+    }
+
+    @media(max-width:992px) {
+      .proof-video-wrap {
+        max-width: 600px
+      }
+    }
+
+    @media(max-width:640px) {
+      .section-proof {
+        padding: 56px 0 48px
+      }
+
+      .proof-header {
+        margin-bottom: 32px
+      }
+
+      .proof-trust {
+        gap: 16px
+      }
+    }
+  </style>
+
+  <section class="section-proof" id="prueba-social">
+    <div class="container">
+      <!-- Floating stars -->
+      <i class="fa-solid fa-star proof-star"></i>
+      <i class="fa-solid fa-star proof-star"></i>
+      <i class="fa-solid fa-star proof-star"></i>
+      <i class="fa-solid fa-star proof-star"></i>
+
+      <div class="proof-header">
+        <div class="proof-quote-icon reveal"><i class="fa-solid fa-quote-left"></i></div>
+        <h2 class="proof-title reveal">Ellas también probaron de todo.<br><span class="accent">Hasta que entendieron lo
+            que faltaba:</span></h2>
+      </div>
+
+      <div class="proof-video-wrap reveal">
+        <div class="proof-video-frame">
+          <div class="proof-video-ratio">
+            <iframe src="https://www.youtube-nocookie.com/embed/xbbTiPQ4chs?rel=0"
+              title="Testimonios — Olfateando el Mundo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-trust reveal">
+        <span class="proof-trust-item"><i class="fa-solid fa-heart"></i> +2.500 familias transformadas</span>
+        <span class="proof-trust-item"><i class="fa-solid fa-paw"></i> Educación respetuosa</span>
+        <span class="proof-trust-item"><i class="fa-solid fa-video"></i> Resultados reales</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     SECTION 7 — CHOOSE YOUR EXPERIENCE
+     ═══════════════════════════════════════════════ -->
+  <style>
+    .section-choose {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      background: linear-gradient(180deg, #F5F0FF 0%, var(--white) 30%, var(--neutral-50) 100%);
+    }
+
+    .section-choose::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(87, 64, 146, .04) 0%, transparent 70%);
+      top: -150px;
+      right: -100px;
+      animation: morph 18s ease-in-out infinite;
+      pointer-events: none
+    }
+
+    .choose-header {
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2
+    }
+
+    .choose-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--purple-700);
+      background: var(--purple-50);
+      border: 1px solid var(--purple-100);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px
+    }
+
+    .choose-title {
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+      color: var(--purple-900);
+      line-height: 1.25
+    }
+
+    .choose-subtitle {
+      font-size: .95rem;
+      color: var(--neutral-500);
+      margin-top: 10px;
+      font-weight: 500
+    }
+
+    /* Cards grid */
+    .choose-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      margin: 0 auto
+    }
+
+    /* Base card */
+    .exp-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(46, 26, 94, .06), 0 1px 3px rgba(46, 26, 94, .04);
+      border: 2px solid var(--neutral-100);
+      transition: all .5s var(--ease-out);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 48px rgba(46, 26, 94, .1)
+    }
+
+    /* VIP card highlighted */
+    .exp-card.vip {
+      border-color: var(--purple-300);
+      box-shadow: 0 4px 32px rgba(87, 64, 146, .12), 0 0 0 1px rgba(87, 64, 146, .08)
+    }
+
+    .exp-card.vip:hover {
+      box-shadow: 0 16px 56px rgba(87, 64, 146, .18);
+      transform: translateY(-6px)
+    }
+
+    /* VIP ribbon */
+    .exp-ribbon {
+      position: absolute;
+      top: 16px;
+      right: -36px;
+      background: linear-gradient(135deg, var(--amber-500), var(--amber-300));
+      color: var(--white);
+      font-size: .65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 6px 44px;
+      transform: rotate(45deg);
+      z-index: 3;
+      box-shadow: 0 2px 8px rgba(222, 130, 30, .3)
+    }
+
+    /* Card header */
+    .exp-header {
+      padding: 28px 28px 0;
+      text-align: center
+    }
+
+    .exp-type {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--neutral-500);
+      margin-bottom: 6px
+    }
+
+    .exp-name {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--purple-900)
+    }
+
+    .exp-card.vip .exp-name {
+      color: var(--purple-700)
+    }
+
+    /* Features list */
+    .exp-features {
+      padding: 20px 28px;
+      flex: 1
+    }
+
+    .exp-features ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .exp-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--neutral-700);
+      line-height: 1.45
+    }
+
+    .exp-features li i {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: .75rem
+    }
+
+    .exp-features li .fa-circle-check {
+      color: var(--success-500)
+    }
+
+    .exp-features li .fa-circle-xmark {
+      color: var(--error-500)
+    }
+
+    .exp-features li.bonus {
+      font-weight: 600
+    }
+
+    .exp-features li.crossed {
+      text-decoration: line-through;
+      color: var(--neutral-300)
+    }
+
+    .exp-features li.crossed .fa-circle-xmark {
+      color: var(--neutral-300)
+    }
+
+    .exp-features .bonus-label {
+      color: var(--purple-700);
+      font-weight: 700;
+      white-space: nowrap
+    }
+
+    /* Divider */
+    .exp-divider {
+      height: 1px;
+      background: var(--neutral-100);
+      margin: 0 28px
+    }
+
+    /* Pricing */
+    .exp-pricing {
+      padding: 20px 28px;
+      text-align: center
+    }
+
+    .exp-pricing .real-value {
+      font-size: .82rem;
+      color: var(--neutral-500);
+      font-weight: 500;
+      margin-bottom: 2px
+    }
+
+    .exp-pricing .old-price {
+      font-size: 1rem;
+      color: var(--neutral-300);
+      text-decoration: line-through;
+      font-weight: 600
+    }
+
+    .exp-pricing .solo-hoy {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--purple-500);
+      margin-top: 6px
+    }
+
+    .exp-pricing .final-price {
+      font-weight: 900;
+      color: var(--success-500);
+      margin-top: 2px
+    }
+
+    .exp-pricing .final-price.free {
+      font-size: 1.8rem
+    }
+
+    .exp-pricing .final-price.paid {
+      font-size: 1.6rem;
+      color: var(--purple-900)
+    }
+
+    /* CTA */
+    .exp-cta {
+      padding: 0 28px 28px
+    }
+
+    .exp-cta .btn-exp {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--radius-full);
+      border: none;
+      font-family: var(--font-primary);
+      font-weight: 800;
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all .3s var(--ease-out)
+    }
+
+    .btn-standard {
+      background: var(--success-500);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(3, 172, 28, .25)
+    }
+
+    .btn-standard:hover {
+      background: #02991a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(3, 172, 28, .35)
+    }
+
+    .btn-vip {
+      background: linear-gradient(135deg, var(--purple-700), var(--purple-500));
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(87, 64, 146, .3)
+    }
+
+    .btn-vip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(87, 64, 146, .4)
+    }
+
+    .choose-note {
+      text-align: center;
+      margin-top: 24px;
+      font-size: .78rem;
+      color: var(--neutral-500);
+      position: relative;
+      z-index: 2
+    }
+
+    /* ===== POPUP MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 46, .65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .4s var(--ease-out);
+      padding: 20px
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0) scale(1);
+      opacity: 1
+    }
+
+    .modal-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(46, 26, 94, .25);
+      max-width: 440px;
+      width: 100%;
+      transform: translateY(20px) scale(.96);
+      opacity: 0;
+      transition: all .5s var(--ease-spring);
+      position: relative
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(46, 26, 94, .06);
+      color: var(--neutral-700);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      z-index: 3;
+      transition: all .3s ease
+    }
+
+    .modal-close:hover {
+      background: var(--error-500);
+      color: var(--white);
+      transform: rotate(90deg)
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--purple-900), var(--purple-700));
+      padding: 32px 32px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .modal-header::before {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 167, 183, .15) 0%, transparent 70%);
+      top: -60px;
+      right: -40px;
+      pointer-events: none
+    }
+
+    .modal-header .modal-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 1.4rem;
+      color: var(--teal-300)
+    }
+
+    .modal-header h3 {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 6px
+    }
+
+    .modal-header p {
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .65);
+      font-weight: 500
+    }
+
+    .modal-body {
+      padding: 28px 32px 32px
+    }
+
+    .modal-body .form-group {
+      margin-bottom: 14px
+    }
+
+    .modal-body label {
+      display: block;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--neutral-700);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px
+    }
+
+    .modal-body input[type="text"],
+    .modal-body input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 2px solid var(--neutral-100);
+      font-family: var(--font-primary);
+      font-size: .9rem;
+      color: var(--neutral-900);
+      background: var(--neutral-50);
+      transition: all .3s ease;
+      outline: none
+    }
+
+    .modal-body input:focus {
+      border-color: var(--teal-500);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(62, 167, 183, .12)
+    }
+
+    .modal-body input::placeholder {
+      color: var(--neutral-300)
+    }
+
+    .modal-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0 20px
+    }
+
+    .modal-consent input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--purple-700);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      cursor: pointer
+    }
+
+    .modal-consent label {
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--neutral-500);
+      line-height: 1.5;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-bottom: 0;
+      cursor: pointer
+    }
+
+    .modal-submit {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: var(--success-500);
+      color: var(--white);
+      font-family: var(--font-primary);
+      font-weight: 800;
+      font-size: .95rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: all .3s var(--ease-out);
+      box-shadow: 0 4px 16px rgba(3, 172, 28, .25)
+    }
+
+    .modal-submit:hover {
+      background: #02991a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(3, 172, 28, .35)
+    }
+
+    @media(max-width:768px) {
+      .choose-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto
+      }
+    }
+
+    @media(max-width:640px) {
+      .section-choose {
+        padding: 56px 0 48px
+      }
+
+      .exp-header {
+        padding: 20px 20px 0
+      }
+
+      .exp-features {
+        padding: 16px 20px
+      }
+
+      .exp-pricing {
+        padding: 16px 20px
+      }
+
+      .exp-cta {
+        padding: 0 20px 20px
+      }
+
+      .modal-header {
+        padding: 24px 20px 20px
+      }
+
+      .modal-body {
+        padding: 20px
+      }
+    }
+  </style>
+
+  <section class="section-choose" id="elegir-experiencia">
+    <div class="container">
+      <div class="choose-header">
+        <div class="choose-label reveal"><i class="fa-solid fa-ticket"></i> Lo que recibirás</div>
+        <h2 class="choose-title reveal">Elige tu experiencia</h2>
+        <p class="choose-subtitle reveal">Dos formas de vivir esta clase intensiva en vivo</p>
+      </div>
+
+      <div class="choose-grid">
+        <!-- STANDARD CARD -->
+        <div class="exp-card reveal">
+          <div class="exp-header">
+            <p class="exp-type">Acceso</p>
+            <h3 class="exp-name">Experiencia Estándar</h3>
+          </div>
+          <div class="exp-features">
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> El Protocolo E.C.A aplicado a un caso real</li>
+              <li><i class="fa-solid fa-circle-check"></i> Los 3 tipos de educación canina (y cuál está dañando a tu
+                perro)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Emociones y sus reacciones</li>
+              <li><i class="fa-solid fa-circle-check"></i> Análisis de vídeos reales en vivo</li>
+              <li><i class="fa-solid fa-circle-check"></i> Material de preparación</li>
+              <li class="crossed"><i class="fa-solid fa-circle-xmark"></i> <span class="bonus-label">BONO 1:</span>
+                Ebook “Guía lenguaje y comportamiento canino”</li>
+              <li class="crossed"><i class="fa-solid fa-circle-xmark"></i> <span class="bonus-label">BONO 2:</span>
+                Sesión VIP de preguntas y respuestas al finalizar la sesión</li>
+            </ul>
+          </div>
+          <div class="exp-divider"></div>
+          <div class="exp-pricing">
+            <p class="real-value">Valor real del acceso estándar:</p>
+            <p class="old-price">47€</p>
+            <p class="solo-hoy">Solo hoy:</p>
+            <p class="final-price free">GRATIS</p>
+          </div>
+          <div class="exp-cta">
+            <button class="btn-exp btn-standard"
+              onclick="document.getElementById('modal-registro').classList.add('active')">QUIERO MI ACCESO
+              GRATIS</button>
+          </div>
+        </div>
+
+        <!-- VIP CARD -->
+        <div class="exp-card vip reveal">
+          <div class="exp-ribbon">Popular</div>
+          <div class="exp-header">
+            <p class="exp-type">Acceso Premium</p>
+            <h3 class="exp-name">Experiencia VIP</h3>
+          </div>
+          <div class="exp-features">
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> El Protocolo E.C.A aplicado a un caso real</li>
+              <li><i class="fa-solid fa-circle-check"></i> Los 3 tipos de educación canina (y cuál está dañando a tu
+                perro)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Emociones y sus reacciones</li>
+              <li><i class="fa-solid fa-circle-check"></i> Análisis de vídeos reales en vivo</li>
+              <li><i class="fa-solid fa-circle-check"></i> Material de preparación</li>
+              <li class="bonus"><i class="fa-solid fa-circle-check"></i> <span class="bonus-label">BONO 1:</span> Ebook
+                “Guía lenguaje y comportamiento canino”</li>
+              <li class="bonus"><i class="fa-solid fa-circle-check"></i> <span class="bonus-label">BONO 2:</span> Sesión
+                VIP de preguntas y respuestas al finalizar la sesión</li>
+            </ul>
+          </div>
+          <div class="exp-divider"></div>
+          <div class="exp-pricing">
+            <p class="real-value">Valor real del acceso VIP:</p>
+            <p class="old-price">97€</p>
+            <p class="solo-hoy">Solo hoy:</p>
+            <p class="final-price paid">10€</p>
+          </div>
+          <div class="exp-cta">
+            <a href="https://pay.hotmart.com/V104825704M?off=fv5o3ycr&sck=na_na_na_na" target="_blank" rel="noopener"
+              class="btn-exp btn-vip">QUIERO SER VIP</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     SECTION 8 — MOMENT TO CHOOSE + BEFORE/AFTER (single fold)
+     ═══════════════════════════════════════════════ -->
+  <style>
+    .section-moment {
+      position: relative;
+      overflow: hidden;
+      padding: 90px 0 80px;
+      background: linear-gradient(160deg, #1a1230 0%, #2E1A5E 40%, #3a2272 100%);
+      color: var(--white)
+    }
+
+    .section-moment::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62, 167, 183, .06) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      animation: morph 18s ease-in-out infinite;
+      pointer-events: none
+    }
+
+    .moment-choice-title {
+      text-align: center;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      color: var(--white);
+      margin-bottom: 56px;
+      position: relative;
+      z-index: 2
+    }
+
+    /* New Dual Column Layout */
+    .moment-columns {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      max-width: 1140px;
+      margin: 0 auto
+    }
+
+    /* Left Side: Images side by side */
+    .moment-images-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .moment-img-box {
+      display: flex;
+      flex-direction: column;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+    }
+
+    .moment-img-wrapper {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+
+    .moment-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .6s var(--ease-out), filter .6s ease;
+    }
+
+    /* "Sad" filter for Antes */
+    .img-antes {
+      filter: grayscale(0.4) brightness(0.8) contrast(1.1);
+    }
+
+    /* "Vibrant" filter for Depois */
+    .img-depois {
+      filter: saturate(1.1) brightness(1.05);
+    }
+
+    .moment-img-box:hover img {
+      transform: scale(1.05)
+    }
+
+    /* Badges */
+    .moment-badge {
+      position: absolute;
+      top: 16px;
+      z-index: 10;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .badge-antes {
+      left: 16px;
+      background: #e73232
+    }
+
+    .badge-depois {
+      right: 16px;
+      background: #03ac1c
+    }
+
+    /* Legend below photo */
+    .moment-img-text {
+      padding: 20px 16px;
+      text-align: center;
+      background: rgba(255, 255, 255, .02);
+    }
+
+    .moment-img-text strong {
+      display: block;
+      font-size: .95rem;
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 2px;
+      letter-spacing: -0.01em;
+    }
+
+    .moment-img-text span {
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .6);
+      font-weight: 500
+    }
+
+    /* Right Side: content */
+    .moment-content-side {
+      display: flex;
+      flex-direction: column;
+      gap: 20px
+    }
+
+    .moment-opt-card {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: transform .3s ease;
+    }
+
+    .moment-opt-card.neg {
+      background: rgba(231, 50, 50, .08);
+      border: 1px solid rgba(231, 50, 50, .15)
+    }
+
+    .moment-opt-card.pos {
+      background: rgba(3, 172, 28, .1);
+      border: 1px solid rgba(3, 172, 28, .2)
+    }
+
+    .moment-opt-card p {
+      font-size: .95rem;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--white);
+    }
+
+    .moment-opt-card.pos p {
+      color: var(--teal-300);
+      font-weight: 700
+    }
+
+    .moment-or-sep {
+      text-align: center;
+      font-weight: 900;
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .2);
+      margin: -8px 0
+    }
+
+    .moment-urgency-inline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      padding: 14px 20px;
+      border-radius: var(--radius-md)
+    }
+
+    .moment-urgency-inline .u-line1 {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--teal-300)
+    }
+
+    .moment-urgency-inline .u-line1 i {
+      margin-right: 8px
+    }
+
+    .moment-cta-wrap {
+      text-align: center;
+      margin-top: 8px
+    }
+
+    .moment-cta-wrap .btn-cta {
+      width: 100%;
+      padding: 18px
+    }
+
+    /* Responsiveness */
+    @media(max-width:992px) {
+      .moment-columns {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 680px
+      }
+    }
+
+    @media(max-width:640px) {
+      .section-moment {
+        padding: 64px 0 56px
+      }
+      .moment-images-side {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .moment-badge {
+        top: 12px;
+        padding: 4px 12px;
+        font-size: .6rem
+      }
+      .moment-img-text {
+        bottom: 12px;
+        padding: 10px;
+      }
+      .moment-opt-card {
+        padding: 20px
+      }
+    }
+
+
+    /* Footer */
+    .site-footer {
+      background: #0e0a1e;
+      padding: 48px 0 32px;
+      color: rgba(255, 255, 255, .4);
+      font-size: .72rem;
+      line-height: 1.7;
+      position: relative
+    }
+
+    .site-footer .container {
+      max-width: 800px;
+      text-align: center
+    }
+
+    .footer-legal {
+      margin-bottom: 20px
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: .75rem;
+      font-weight: 600
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .5);
+      text-decoration: none;
+      transition: color .3s ease
+    }
+
+    .footer-links a:hover {
+      color: var(--teal-300)
+    }
+
+    .footer-links .sep {
+      color: rgba(255, 255, 255, .15)
+    }
+  </style>
+
+  <section class="section-moment" id="momento-elegir">
+    <div class="container">
+      <h2 class="moment-choice-title reveal">ESTE ES EL MOMENTO DE ELEGIR</h2>
+
+      <div class="moment-columns">
+        <!-- COLUMN LEFT: IMAGES SIDE BY SIDE -->
+        <div class="moment-images-side reveal">
+          <!-- IMAGE 1: ANTES -->
+          <div class="moment-img-box">
+            <div class="moment-img-wrapper">
+              <span class="moment-badge badge-antes">ANTES</span>
+              <img src="assets/images/antes.jpg" alt="Antes — Frustración" class="img-antes" loading="lazy" />
+            </div>
+            <div class="moment-img-text">
+              <strong>Culpable y Frustrada</strong>
+              <span>Miedos y Reacciones</span>
+            </div>
+          </div>
+          <!-- IMAGE 2: DESPUÉS -->
+          <div class="moment-img-box">
+            <div class="moment-img-wrapper">
+              <span class="moment-badge badge-depois">DESPUÉS</span>
+              <img src="assets/images/depois.jpg" alt="Depois — Confianza" class="img-depois" loading="lazy" />
+            </div>
+            <div class="moment-img-text">
+              <strong>Confianza y Calma</strong>
+              <span>Un Perro Feliz</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUMN RIGHT: TEXT CONTENT -->
+        <div class="moment-content-side">
+          <div class="moment-opt-card neg reveal">
+            <p>Seguir sintiéndote culpable cada vez que tu perro reacciona por no saber cómo ayudarle...</p>
+          </div>
+          <p class="moment-or-sep reveal">O</p>
+          <div class="moment-opt-card pos reveal">
+            <p>Finalmente entender lo que siente y saber cómo calmarle de verdad para que sea un perro más feliz.</p>
+          </div>
+
+          <div class="moment-urgency-inline reveal">
+            <span class="u-line1"><i class="fa-solid fa-graduation-cap"></i> Sin repetición - Clase única en directo</span>
+          </div>
+
+          <div class="moment-cta-wrap reveal">
+            <a href="#elegir-experiencia" class="btn-cta">QUIERO ELEGIR MI ACCESO <i
+                class="fa-solid fa-arrow-right"></i></a>
+            <p class="section-access-note"><i class="fa-solid fa-graduation-cap"></i> Acceso estándar gratuito · Experiencia VIP disponible</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REGISTRATION POPUP ===== -->
+  <div class="modal-overlay" id="modal-registro">
+    <div class="modal-card">
+      <button class="modal-close" onclick="document.getElementById('modal-registro').classList.remove('active')"
+        aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fa-solid fa-paw"></i></div>
+        <h3>Reserva tu plaza gratuita</h3>
+        <p>Clase intensiva en vivo — Olfateando el Mundo</p>
+      </div>
+      <div class="modal-body">
+        <form id="form-registro" onsubmit="return false;">
+          <div class="form-group">
+            <label for="reg-nombre">Nombre</label>
+            <input type="text" id="reg-nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="reg-correo">Correo</label>
+            <input type="email" id="reg-correo" name="correo" placeholder="tu@email.com" required />
+          </div>
+          <div class="modal-consent">
+            <input type="checkbox" id="reg-consent" required />
+            <label for="reg-consent">Autorizo el tratamiento de mis datos personales conforme a las Políticas de
+              Privacidad y los Términos y Condiciones.</label>
+          </div>
+          <button type="submit" class="modal-submit">QUIERO MI PLAZA <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-legal">Este sitio no forma parte ni está respaldado por Facebook™ ni por Google™. Facebook™ es
+        una marca comercial de Meta Platforms, Inc. y Google™ es una marca comercial de Google LLC. Olfateando el Mundo
+        ofrece formación online en educación canina respetuosa, orientada a ayudar a las familias a comprender el
+        comportamiento de su perro y mejorar la convivencia desde la raíz emocional. El contenido es de carácter
+        educativo e informativo y no constituye asesoramiento veterinario, médico, psicológico ni terapéutico, ni
+        sustituye la atención de profesionales cualificados cuando sea necesaria. Los testimonios y ejemplos compartidos
+        reflejan experiencias reales, pero los resultados pueden variar según cada perro, familia y contexto. La
+        participación en esta formación no implica ningún compromiso de compra. Al finalizar, podrás acceder, de forma
+        totalmente opcional, a programas de acompañamiento más avanzados para profundizar en el proceso.</p>
+      <div class="footer-links">
+        <a href="mailto:info@olfateandoelmundo.com">info@olfateandoelmundo.com</a>
+        <span class="sep">|</span>
+        <a href="https://olfateandoelmundo.com/politica-de-privacidad/" target="_blank" rel="noopener">Políticas de
+          Privacidad</a>
+        <span class="sep">|</span>
+        <a href="https://olfateandoelmundo.com/terminos-y-condiciones/" target="_blank" rel="noopener">Términos de
+          Uso</a>
+        <span class="sep">|</span>
+        <a href="https://www.instagram.com/olfateandoelmundo/" target="_blank" rel="noopener">Más de Olfateando el
+          Mundo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Reveal on scroll */
+    const revealObserver = new IntersectionObserver(e => { e.forEach(n => { if (n.isIntersecting) { const p = n.target.parentElement, s = p.querySelectorAll('.reveal'), i = Array.from(s).indexOf(n.target); n.target.style.transitionDelay = i * .1 + 's'; n.target.classList.add('visible') } }) }, { threshold: .12, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* Smooth scroll for anchor links */
+    document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }) } }) });
+
+    /* Close modal on overlay click */
+    document.getElementById('modal-registro').addEventListener('click', function (e) { if (e.target === this) this.classList.remove('active') });
+
+    /* Close modal on Escape key */
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') document.getElementById('modal-registro').classList.remove('active') });
+  </script>
+</body>
+
+</html>
