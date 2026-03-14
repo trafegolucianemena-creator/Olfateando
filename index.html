@@ -2412,7 +2412,11 @@
     .section-choose {
       position: relative;
       overflow: hidden;
-      padding: 90px 0 80px;
+      padding: 40px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       background: linear-gradient(180deg, #F5F0FF 0%, var(--white) 30%, var(--neutral-50) 100%);
     }
 
@@ -2431,7 +2435,7 @@
 
     .choose-header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
       position: relative;
       z-index: 2
     }
@@ -2470,7 +2474,7 @@
     .choose-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 20px;
       position: relative;
       z-index: 2;
       max-width: 960px;
@@ -2525,7 +2529,7 @@
 
     /* Card header */
     .exp-header {
-      padding: 28px 28px 0;
+      padding: 20px 20px 0;
       text-align: center
     }
 
@@ -2550,7 +2554,7 @@
 
     /* Features list */
     .exp-features {
-      padding: 20px 28px;
+      padding: 15px 24px;
       flex: 1
     }
 
@@ -2558,7 +2562,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px
+      gap: 4px
     }
 
     .exp-features li {
@@ -2608,12 +2612,12 @@
     .exp-divider {
       height: 1px;
       background: var(--neutral-100);
-      margin: 0 28px
+      margin: 0 24px
     }
 
     /* Pricing */
     .exp-pricing {
-      padding: 20px 28px;
+      padding: 15px 24px;
       text-align: center
     }
 
@@ -2657,7 +2661,7 @@
 
     /* CTA */
     .exp-cta {
-      padding: 0 28px 28px
+      padding: 0 24px 20px
     }
 
     .exp-cta .btn-exp {
