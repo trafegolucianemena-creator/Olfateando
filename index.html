@@ -2962,7 +2962,7 @@
     <div class="container">
       <div class="choose-header">
         <div class="choose-label reveal"><i class="fa-solid fa-ticket"></i> Lo que recibirás</div>
-        <h2 class="choose-title reveal">Elige tu experiencia</h2>
+        <h2 class="choose-title reveal" id="elige-tu-experiencia-target">Elige tu experiencia</h2>
         <p class="choose-subtitle reveal">Dos formas de vivir esta clase intensiva en vivo</p>
       </div>
 
@@ -3457,7 +3457,23 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     /* Smooth scroll for anchor links */
-    document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }) } }) });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        let targetId = this.getAttribute('href');
+        let t = document.querySelector(targetId);
+        
+        // Ajuste mobile para a seção "elige tu experiencia" (skips label/padding)
+        if (targetId === '#elegir-experiencia' && window.innerWidth <= 768) {
+          const mobileTarget = document.querySelector('#elige-tu-experiencia-target');
+          if (mobileTarget) t = mobileTarget;
+        }
+
+        if (t) {
+          e.preventDefault();
+          t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
 
     /* Close modal on overlay click */
     document.getElementById('modal-registro').addEventListener('click', function (e) { if (e.target === this) this.classList.remove('active') });
